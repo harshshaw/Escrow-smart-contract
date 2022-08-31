@@ -57,11 +57,11 @@
 	},
 	"sources": {
 		"contracts/Escrow.sol": {
-			"keccak256": "0xc66c200c83ae56c571801edd96a05608508360e1009ac1efc429c13ebd4d7dd1",
+			"keccak256": "0xa3ba0d3888c2b196dd7cad4ea67e816aeb8e1a80477814b5b9beb7ba3cb58ae5",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://c2b5f4863a7675b7e33ee1a6847f11a5c8aa16cd9742fa8bcccf9c405a0a1077",
-				"dweb:/ipfs/QmZuf4PDcYkFXwc7Wr4eZVtQ6F1qdzdtLyJV1p1opKzAoq"
+				"bzz-raw://bb62c68e71a62a13f938b73e0bb20cddb55d8bfaed74959fbe6ffbde2d171b70",
+				"dweb:/ipfs/QmNR3H22WBakbfuCv9geW5V2Knwbt4n8E8gu4RtyNnDamz"
 			]
 		}
 	},
