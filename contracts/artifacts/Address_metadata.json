@@ -1,0 +1,46 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"details": "Collection of functions related to the address type",
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/RealEstate.sol": "Address"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/RealEstate.sol": {
+			"keccak256": "0x262a036950d6eadd69756e3bdd81f884dc386aec313a16febb503b5cc8165b64",
+			"license": "Unlicense",
+			"urls": [
+				"bzz-raw://311312e711c509c1115330f8ade8459205034766ea42122dec3603286b58c470",
+				"dweb:/ipfs/QmUuELnKYZjXLTfhWau3Q9DYuayr75eTb21m4YgQRyZnQz"
+			]
+		}
+	},
+	"version": 1
+}
