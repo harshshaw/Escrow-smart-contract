@@ -4,7 +4,67 @@
 	},
 	"language": "Solidity",
 	"output": {
-		"abi": [],
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_nftAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_nftId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address payable",
+						"name": "_seller",
+						"type": "address"
+					},
+					{
+						"internalType": "address payable",
+						"name": "_buyer",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "finalizeSale",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "nftAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "nftId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
 		"devdoc": {
 			"kind": "dev",
 			"methods": {},
@@ -33,11 +93,11 @@
 	},
 	"sources": {
 		"contracts/Escrow.sol": {
-			"keccak256": "0xf61727add676d331f5868ac708a27dfda90df1f9eae6b31c1ae52517ce419044",
+			"keccak256": "0xc66c200c83ae56c571801edd96a05608508360e1009ac1efc429c13ebd4d7dd1",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://de8ad4437bcfe3dc21094d2a015e056e84241daf589b2d0fb7b56dcd746e8362",
-				"dweb:/ipfs/QmWkhMc1MiTMJrKoYpwbeQyqU9Tf6c4r5eevUjJzrhGcQf"
+				"bzz-raw://c2b5f4863a7675b7e33ee1a6847f11a5c8aa16cd9742fa8bcccf9c405a0a1077",
+				"dweb:/ipfs/QmZuf4PDcYkFXwc7Wr4eZVtQ6F1qdzdtLyJV1p1opKzAoq"
 			]
 		}
 	},
