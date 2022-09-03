@@ -54,11 +54,11 @@ describe("RealEstate", () => {
         let balance, transaction;
         it('executes a successful transaction ', async () => {
             //Expect seller to be the NFT owner before the sale
-            expect(await realEstate.ownerOf(nftID)).to.equal(seller.address)
+            expect(await realEstate.ownerOf(nftID)).to.equal(seller.address);
 
             //Check escrow balance
             balance = await escrow.getBalance();
-            console.log("escrow balance:", ethers.utils.formatEther(balance))
+            console.log("escrow balance:", ethers.utils.formatEther(balance));
 
             //Buyer Deposit to Earnest
             transaction = await escrow.connect(buyer).depositEarnest({ value: escrowAmount });
@@ -66,7 +66,7 @@ describe("RealEstate", () => {
 
             //Check escrow balance
             balance = await escrow.getBalance();
-            console.log("escrow balance:", ethers.utils.formatEther(balance))
+            console.log("escrow balance:", ethers.utils.formatEther(balance));
 
             //Inspector update status
             transaction = await escrow.connect(inspector).updateInspectionStatus(true);
@@ -82,17 +82,28 @@ describe("RealEstate", () => {
             await transaction.wait();
             console.log("seller approved");
 
+            //lender sends the Amount to Escrow
+            transaction = await lender.sendTransaction({ to: escrow.address, value: ether(80) });
+            await transaction.wait();
+            console.log("lender has sent the remaining 80% amount");
+
             transaction = await escrow.connect(lender).approvalUpdation(lender.address, true);
             await transaction.wait();
             console.log("buyer approved");
 
             //finalize sale
-            transaction = await escrow.connect(buyer).finalizeSale()
+            transaction = await escrow.connect(buyer).finalizeSale();
             await transaction.wait();
             console.log("buyer finalize sale");
 
             //Expect the buyer to be the NFT owner after the sale
-            expect(await realEstate.ownerOf(nftID)).to.equal(buyer.address)
+            expect(await realEstate.ownerOf(nftID)).to.equal(buyer.address);
+
+            //Expect Seller to recieve funds
+            balance = await ethers.provider.getBalance(seller.address);
+            console.log("Seller balance", ethers.utils.formatEther(balance));
+            expect(balance).to.be.above(ether(10099));
+
         })
     })
 })

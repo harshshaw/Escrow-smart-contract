@@ -32,6 +32,9 @@ contract Escrow {
     }
     mapping(address => bool) public approval;
 
+    //This is receive is used for a contract to receieve amount
+    receive() external payable {}
+
     constructor(
         address _nftAddress,
         uint256 _nftId,
@@ -74,6 +77,11 @@ contract Escrow {
         require(approval[buyer], "Not approved by buyer");
         require(approval[seller], "Not approved by seller");
         require(approval[lender], "Not approved by lender");
+        require(address(this).balance >= purchasePrice, "Not enough Ether");
+
+        (bool success, ) = payable(seller).call{value: address(this).balance}(
+            ""
+        );
         IERC721(nftAddress).safeTransferFrom(seller, buyer, nftId);
     }
 }
