@@ -30,6 +30,7 @@ contract Escrow {
         require(msg.sender == inspector, "Only Inspector can inspect");
         _;
     }
+    mapping(address => bool) public approval;
 
     constructor(
         address _nftAddress,
@@ -51,6 +52,10 @@ contract Escrow {
         lender = _lender;
     }
 
+    function approvalUpdation(address _sender, bool _approve) public {
+        approval[_sender] = _approve;
+    }
+
     function updateInspectionStatus(bool _passed) public onlyInspector {
         inspection = _passed;
     }
@@ -65,6 +70,10 @@ contract Escrow {
 
     //A function to Finalize Sale and transfer nft from sellers address to buyer.
     function finalizeSale() public {
+        require(inspection, "Inspection not passed");
+        require(approval[buyer], "Not approved by buyer");
+        require(approval[seller], "Not approved by seller");
+        require(approval[lender], "Not approved by lender");
         IERC721(nftAddress).safeTransferFrom(seller, buyer, nftId);
     }
 }
